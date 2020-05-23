@@ -1,11 +1,36 @@
-public class Donations {
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+@Entity(tableName = "donations")
+
+public class Donation {
+
+  public int getId() {
+        return mId;
+    }
+
+    public void setId(int id) {
+        mId = id;
+    }
+
+    @PrimaryKey(autoGenerate = true)
+    @NonNull
+    @ColumnInfo(name = "donationId")
+    private int mId;
 
 	private String pCreationDate;
+	
+	
+    @Nullable
+    @ColumnInfo(name = "donationName")
+    
 	private String pName;
 	private String pLocation;
 	private int pBeneficiaries;
 	
-	public Donations(String creationDate, String name, String location, int beneficiaries) {
+	public Donation(String creationDate, String name, String location, int beneficiaries) {
         pCreationDate = creationDate;
         pName = name;
         pLocation = location;
